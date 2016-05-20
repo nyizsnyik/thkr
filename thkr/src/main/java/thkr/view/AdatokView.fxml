@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="thkr.view.AdatokController">
+	<children>
+		<SplitPane dividerPositions="0.3076923076923077" layoutX="182.0" layoutY="83.0" prefHeight="400.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+			<items>
+				<AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+					<children>
+						<TableView fx:id="lakasTable" layoutX="-9.0" layoutY="14.0" prefHeight="398.0" prefWidth="246.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+							<columns>
+								<TableColumn fx:id="lakasOszlop" prefWidth="82.0" resizable="false" text="Lakás" />
+								<TableColumn fx:id="nevOszlop" prefWidth="98.0" resizable="false" text="Név" />
+							</columns>
+						</TableView>
+					</children>
+				</AnchorPane>
+				<AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+					<children>
+						<Label layoutX="14.0" layoutY="14.0" text="Lakók adatai" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="15.0" />
+						<GridPane layoutX="14.0" layoutY="47.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="50.0">
+							<columnConstraints>
+								<ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+								<ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+							</columnConstraints>
+							<rowConstraints>
+								<RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+								<RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+								<RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+								<RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+							</rowConstraints>
+							<children>
+								<Label text="Lakás:" />
+								<Label text="Név:" GridPane.rowIndex="1" />
+								<Label text="Szem. Ig. Szám:" GridPane.rowIndex="2" />
+								<Label text="Tel.:" GridPane.rowIndex="3" />
+								<Label fx:id="ajtoLabel" text="Label" GridPane.columnIndex="1" />
+								<Label fx:id="nevLabel" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+								<Label fx:id="szSzamLabel" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+								<Label fx:id="telLabel" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+							</children>
+						</GridPane>
+                  <Button layoutX="206.0" layoutY="328.0" mnemonicParsing="false" onAction="#editAdatok" prefHeight="35.0" prefWidth="90.0" text="Szerkeztés" />
+                  <Button layoutX="307.0" layoutY="328.0" mnemonicParsing="false" onAction="#tartozas" prefHeight="35.0" prefWidth="90.0" text="Tartozás" />
+					</children>
+				</AnchorPane>
+			</items>
+		</SplitPane>
+	</children>
+</AnchorPane>
