@@ -12,21 +12,14 @@ public class Futes {
 	private LocalDate utorsoKatamtozas;
 
 	public boolean lejartE() {
-		if (this.aktualisOsszeg > 0) {
-			if (LocalDate.now().isAfter(this.lejaratiDatum))
-				return true;
-		}
+		if (this.aktualisOsszeg > 0 && LocalDate.now().isAfter(this.lejaratiDatum))
+			return true;
 		return false;
 	}
 
 	public boolean kelleKamatozni() {
-
-		if (this.lejartTartozas > 0) {
-			if (LocalDate.now().isAfter(utorsoKatamtozas.plusMonths(1))) {
-				return true;
-			}
-		}
-
+		if (this.lejartTartozas > 0 && LocalDate.now().isAfter(utorsoKatamtozas.plusMonths(1)))
+			return true;
 		return false;
 	}
 
@@ -39,7 +32,7 @@ public class Futes {
 				this.aktualisOsszeg += this.aktualisOsszeg * haviKamatLab;
 				this.lejaratiDatum = this.lejaratiDatum.plusMonths(1);
 			}
-			while (this.utorsoKatamtozas.isAfter(lejaratiDatum.plusMonths(1))) {
+			while (this.utorsoKatamtozas.plusMonths(1).isAfter(lejaratiDatum.plusMonths(1))) {
 				this.aktualisOsszeg += this.aktualisOsszeg * haviKamatLab;
 				this.lejaratiDatum = this.lejaratiDatum.plusMonths(1);
 			}
