@@ -4,6 +4,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
 import thkr.Main;
+import thkr.Vezerlo;
 import thkr.model.Futes;
 
 public class TartozasViewController {
@@ -46,11 +47,13 @@ public class TartozasViewController {
 	public void actBefizetAction(){
 		this.futes.setAktualisOsszeg(0);
 		setFutes(futes);
+		Vezerlo.setFutes(futes);
 	}
 	
 	public void lejBefizetAction(){
 		main.createBefizetView(this.futes);
 		setFutes(futes);
+		
 	}
 	
 	public void bezarAction(){

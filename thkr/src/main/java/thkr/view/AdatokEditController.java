@@ -3,6 +3,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import thkr.Vezerlo;
 import thkr.model.Lakas;
 public class AdatokEditController {
 
@@ -44,6 +45,7 @@ public class AdatokEditController {
 		lakas.setLakoNev(nevField.getText());
 		lakas.setSzSzam(szSzamField.getText());
 		lakas.setTel(telField.getText());
+		Vezerlo.setLakas(lakas);
 		stage.close();
 	}
 }

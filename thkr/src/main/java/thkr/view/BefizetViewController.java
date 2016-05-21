@@ -3,6 +3,7 @@ package thkr.view;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import thkr.Vezerlo;
 import thkr.model.Futes;
 
 public class BefizetViewController {
@@ -31,7 +32,10 @@ public class BefizetViewController {
 			futes.setLejartTartozas(futes.getLejartTartozas() - Integer.parseInt(osszeg.getText()));
 		else
 			futes.setLejartTartozas(0);
-			stage.close();
+		Vezerlo.setFutes(futes);
+		stage.close();
+		
+			
 	}
 
 	public void megseAction() {

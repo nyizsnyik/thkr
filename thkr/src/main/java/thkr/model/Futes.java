@@ -11,13 +11,12 @@ public class Futes {
 	private int lejartTartozas;
 	private LocalDate utorsoKatamtozas;
 
-	public static Map<Integer, Integer> dijSzamitas(Map<Integer, Integer> hoMennyiseg, int gazSzamla) {
-		double osszHo = (double) hoMennyiseg.values().stream().mapToInt(p -> p).sum();
-		double valto = (double) gazSzamla / osszHo;
-		for (Integer ajtoId : hoMennyiseg.keySet()) {
-			hoMennyiseg.replace(ajtoId, (int) (hoMennyiseg.get(ajtoId) * valto));
+	public boolean lejartE(LocalDate localDate) {
+		if (this.aktualisOsszeg > 0) {
+			if (localDate.isAfter(this.lejaratiDatum))
+				return true;
 		}
-		return hoMennyiseg;
+		return false;
 	}
 
 	public boolean lejartE() {
@@ -42,7 +41,8 @@ public class Futes {
 	public void kamatozas(int evesKamatlab) {
 
 		while (this.kelleKamatozni()) {
-
+			if(lejartE(utorsoKatamtozas))
+				this.lejatr();
 			this.lejartTartozas += this.lejartTartozas * ((evesKamatlab / 12.0) / 100.0);
 			this.utorsoKatamtozas=this.utorsoKatamtozas.plusMonths(1);
 		}

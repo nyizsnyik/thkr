@@ -13,12 +13,10 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.util.converter.LocalDateStringConverter;
 import thkr.view.*;
-import thkr.jpa.THKRDBService;
 import thkr.model.*;
 import java.time.*;
 import java.util.ArrayList;
 import java.util.List;
-
 import thkr.jpa.XmlService;
 
 import javax.persistence.EntityManager;
@@ -136,14 +134,8 @@ public void createTartozasView(Lakas lakas){
 			TartozasViewController controller = loader.getController();
 			controller.setMain(this);
 			Futes kivLakas = XmlService.getFutes(lakas);
-//			for (Futes futes : futesList) {
-//				if(futes.getAjtoSzam()==lakas.getAjtoSzam()){
-//					kivLakas=futes;
-//					break;
-//				}
-//			}
 			kivLakas.kamatozas(10);
-			kivLakas.lejatr();
+			Vezerlo.setFutes(kivLakas);
 			controller.setFutes(kivLakas);
 			controller.setStage(stage);
 			stage.showAndWait();
