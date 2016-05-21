@@ -23,6 +23,12 @@ public class AdatokEditController {
 	
 	private Lakas lakas;
 	
+	private AdatokController ac;
+	
+	public void setAC(AdatokController ac){
+		this.ac=ac;
+	}
+	
 	public void setLakas(Lakas lakas){
 		this.lakas=lakas;
 		

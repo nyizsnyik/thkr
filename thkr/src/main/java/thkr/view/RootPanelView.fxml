@@ -5,16 +5,19 @@
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.layout.BorderPane?>
 
-<BorderPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="thkr.view.RootPanelViewController">
-   <top>
-      <MenuBar BorderPane.alignment="CENTER">
-        <menus>
-          <Menu mnemonicParsing="false" text="Menü">
-            <items>
-              <MenuItem mnemonicParsing="false" onAction="#kill" text="Bezár" />
-            </items>
-          </Menu>
-        </menus>
-      </MenuBar>
-   </top>
+<BorderPane prefHeight="400.0" prefWidth="600.0"
+	xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1"
+	fx:controller="thkr.view.RootPanelViewController">
+	<top>
+		<MenuBar BorderPane.alignment="CENTER">
+			<menus>
+				<Menu mnemonicParsing="false" text="Menü">
+					<items>
+						<MenuItem mnemonicParsing="false" onAction="#kamatAction" text="Kamat módosítás" />
+						<MenuItem mnemonicParsing="false" onAction="#kill" text="Bezár" />
+					</items>
+				</Menu>
+			</menus>
+		</MenuBar>
+	</top>
 </BorderPane>

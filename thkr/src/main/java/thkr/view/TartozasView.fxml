@@ -31,5 +31,6 @@
       <Button layoutX="124.0" layoutY="186.0" mnemonicParsing="false" onAction="#actBefizetAction" text="Aktuális Tartozás Befizetése" />
       <Button layoutX="136.0" layoutY="218.0" mnemonicParsing="false" onAction="#lejBefizetAction" text="Lejárt Tartozás Befizetése" />
       <Button layoutX="241.0" layoutY="250.0" mnemonicParsing="false" onAction="#bezarAction" text="Bezár" />
+      <Button layoutX="150.0" layoutY="154.0" mnemonicParsing="false" onAction="#ujTartozas" text="Új Tartozas Hozzáadás" />
    </children>
 </AnchorPane>

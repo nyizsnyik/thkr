@@ -3,10 +3,10 @@
 		<aktualisOsszeg>0</aktualisOsszeg>
 		<lejaratiDatum>
 			<ev>2016</ev>
-			<honap>3</honap>
-			<nap>11</nap>
+			<honap>5</honap>
+			<nap>23</nap>
 		</lejaratiDatum>
-		<lejartTartozas>11175</lejartTartozas>
+		<lejartTartozas>28848</lejartTartozas>
 		<utorsoKamatozas>
 			<ev>2016</ev>
 			<honap>5</honap>
@@ -28,16 +28,16 @@
 		</utorsoKamatozas>
 	</Futes>
 	<Futes id="3">
-		<aktualisOsszeg>45000</aktualisOsszeg>
+		<aktualisOsszeg>0</aktualisOsszeg>
 		<lejaratiDatum>
 			<ev>2016</ev>
 			<honap>5</honap>
 			<nap>11</nap>
 		</lejaratiDatum>
-		<lejartTartozas>22000</lejartTartozas>
+		<lejartTartozas>66183</lejartTartozas>
 		<utorsoKamatozas>
 			<ev>2016</ev>
-			<honap>3</honap>
+			<honap>4</honap>
 			<nap>25</nap>
 		</utorsoKamatozas>
 	</Futes>

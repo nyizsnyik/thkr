@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="200.0" prefWidth="300.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="thkr.view.KamatEditViewController">
+   <children>
+      <Label layoutX="33.0" layoutY="83.0" text="Új kamat:" />
+      <TextField fx:id="kamat" layoutX="170.0" layoutY="79.0" prefHeight="25.0" prefWidth="123.0" />
+      <Button layoutX="170.0" layoutY="141.0" mnemonicParsing="false" onAction="#mentesAction" text="Mentés" />
+      <Button layoutX="241.0" layoutY="141.0" mnemonicParsing="false" onAction="#megseAction" text="Mégse" />
+      <Label layoutX="28.0" layoutY="42.0" text="Régi kamat" />
+      <Label fx:id="regikamat" layoutX="212.0" layoutY="42.0" text="Label" />
+   </children>
+</AnchorPane>

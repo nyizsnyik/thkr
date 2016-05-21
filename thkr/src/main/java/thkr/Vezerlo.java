@@ -10,5 +10,9 @@ public class Vezerlo {
 	public static void setFutes(Futes futes){
 		XmlService.setFutes(futes);
 	}
+	
+	public static void setKamat(int kamat){
+		XmlService.setKamat(kamat);
+	}
 
 }

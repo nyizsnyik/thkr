@@ -85,6 +85,7 @@ public class AdatokController {
 	private void editAdatok(){
 		Lakas data= lakasTable.getSelectionModel().getSelectedItem();
 		main.createAdatokEditView(data);
+		showAdatok(data);
 	}
 	
 	@FXML

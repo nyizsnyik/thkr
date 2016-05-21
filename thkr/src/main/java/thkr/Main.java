@@ -19,13 +19,9 @@ import java.util.ArrayList;
 import java.util.List;
 import thkr.jpa.XmlService;
 
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
 public class Main extends Application{
 	
 	private List<Lakas> lakasList = new ArrayList<Lakas>();
-	private List<Futes> futesList = new ArrayList<Futes>();
 	private Stage primaryStage;
 	private BorderPane rootPane;
 	
@@ -38,19 +34,7 @@ public class Main extends Application{
 		createAdatokView();
 	}
 	public Main(){
-		
 		lakasList= XmlService.getAllLakas();
-		
-		
-//		this.lakasList.add(new Lakas("1","Nathan Summers","12345","06305554466"));
-//		this.lakasList.add(new Lakas("2","asd asd","1332345","06305444554466"));
-//		this.lakasList.add(new Lakas("3","asdn Summers","12345","06305554466"));
-//		this.lakasList.add(new Lakas("4","Nat asd","12dddddddd345","063055444444454466"));
-//		
-//		this.futesList.add(new Futes("1",13000,LocalDate.of(2016,6,11),20000,LocalDate.of(2016, 02, 11)));
-//		this.futesList.add(new Futes("2",14000,LocalDate.of(2016,7,1),20000,LocalDate.of(2016, 06, 11)));
-//		this.futesList.add(new Futes("3",15000,LocalDate.of(2016,4,21),20000,LocalDate.of(2016, 05, 11)));
-//		this.futesList.add(new Futes("4",11000,LocalDate.of(2016,8,5),20000,LocalDate.of(2016, 04, 11)));
 	}
 	
 	public static void main(String[] args) {
@@ -64,7 +48,7 @@ public class Main extends Application{
 		try {
 			rootPane = (BorderPane)loader.load();
 			RootPanelViewController rpvc=loader.getController();
-			
+			rpvc.setMain(this);
 			Scene scene = new Scene(rootPane);
 			primaryStage.setScene(scene);
 			primaryStage.show();
@@ -133,10 +117,7 @@ public void createTartozasView(Lakas lakas){
 			
 			TartozasViewController controller = loader.getController();
 			controller.setMain(this);
-			Futes kivLakas = XmlService.getFutes(lakas);
-			kivLakas.kamatozas(XmlService.getKamat());
-			Vezerlo.setFutes(kivLakas);
-			controller.setFutes(kivLakas);
+			controller.setFutes(XmlService.getFutes(lakas));
 			controller.setStage(stage);
 			stage.showAndWait();
 			
@@ -156,15 +137,6 @@ public void createTartozasView(Lakas lakas){
 		this.lakasList = lakasList;
 	}
 
-
-	public List<Futes> getFutesList() {
-		return futesList;
-	}
-
-
-	public void setFutesList(ObservableList<Futes> futesList) {
-		this.futesList = futesList;
-	}
 	public void createBefizetView(Futes futes) {
 		FXMLLoader loader = new FXMLLoader();
 		loader.setLocation(Main.class.getResource("view/BefizetView.fxml"));
@@ -188,6 +160,56 @@ public void createTartozasView(Lakas lakas){
 			e.printStackTrace();
 		}
 		
+	}
+	
+	public void createKamatEditView() {
+		FXMLLoader loader = new FXMLLoader();
+		loader.setLocation(Main.class.getResource("view/KamatEditView.fxml"));
+		try {
+			AnchorPane kamatEditView = (AnchorPane)loader.load();
+			Stage stage = new Stage();
+			stage.setTitle("Kamat módosítás");
+			stage.initModality(Modality.WINDOW_MODAL);
+			stage.initOwner(primaryStage);
+			
+			Scene scene = new Scene(kamatEditView);
+			stage.setScene(scene);
+			
+			KamatEditViewController controller = loader.getController();
+			controller.setRegikamat(XmlService.getKamat());
+			controller.setStage(stage);
+			stage.showAndWait();
+			
+			
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		
+	}
+	
+public void createUjTartozasView(Futes futes){
+		
+		FXMLLoader loader = new FXMLLoader();
+		loader.setLocation(Main.class.getResource("view/UjTartozasView.fxml"));
+		try {
+			AnchorPane ujTartozasView = (AnchorPane)loader.load();
+			Stage stage = new Stage();
+			stage.setTitle("Új tartozás hozzáadása");
+			stage.initModality(Modality.WINDOW_MODAL);
+			stage.initOwner(primaryStage);
+			
+			Scene scene = new Scene(ujTartozasView);
+			stage.setScene(scene);
+			
+			UjTartozasViewController controller = loader.getController();
+			controller.setFutes(futes);
+			controller.setStage(stage);
+			stage.showAndWait();
+			
+			
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 
 	
