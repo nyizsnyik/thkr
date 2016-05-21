@@ -11,14 +11,6 @@ public class Futes {
 	private int lejartTartozas;
 	private LocalDate utorsoKatamtozas;
 
-	public boolean lejartE(LocalDate localDate) {
-		if (this.aktualisOsszeg > 0) {
-			if (localDate.isAfter(this.lejaratiDatum))
-				return true;
-		}
-		return false;
-	}
-
 	public boolean lejartE() {
 		if (this.aktualisOsszeg > 0) {
 			if (LocalDate.now().isAfter(this.lejaratiDatum))
@@ -39,24 +31,30 @@ public class Futes {
 	}
 
 	public void kamatozas(int evesKamatlab) {
-
-		while (this.kelleKamatozni()) {
-			if(lejartE(utorsoKatamtozas))
-				this.lejatr();
-			this.lejartTartozas += this.lejartTartozas * ((evesKamatlab / 12.0) / 100.0);
-			this.utorsoKatamtozas=this.utorsoKatamtozas.plusMonths(1);
+		double haviKamatLab = ((evesKamatlab / 12.0) / 100.0);
+		Boolean lejart = false;
+		if (lejartE()) {
+			lejart = true;
+			while (LocalDate.now().isAfter(lejaratiDatum.plusMonths(1))) {
+				this.aktualisOsszeg += this.aktualisOsszeg * haviKamatLab;
+				this.lejaratiDatum = this.lejaratiDatum.plusMonths(1);
+			}
+			while (this.utorsoKatamtozas.isAfter(lejaratiDatum.plusMonths(1))) {
+				this.aktualisOsszeg += this.aktualisOsszeg * haviKamatLab;
+				this.lejaratiDatum = this.lejaratiDatum.plusMonths(1);
+			}
+		}
+		if (this.kelleKamatozni()) {
+			while (LocalDate.now().isAfter(this.utorsoKatamtozas.plusMonths(1))) {
+				this.lejartTartozas += this.lejartTartozas * haviKamatLab;
+				this.utorsoKatamtozas = this.utorsoKatamtozas.plusMonths(1);
+			}
+		}
+		if (lejart) {
+			this.lejartTartozas += this.aktualisOsszeg;
+			this.aktualisOsszeg = 0;
 		}
 	}
-	
-	public void lejatr(){
-		if(this.lejartE()){
-			this.lejartTartozas+=this.aktualisOsszeg;
-			this.aktualisOsszeg=0;
-		}
-	}
-	
-	
-	
 
 	public int getAktualisOsszeg() {
 		return aktualisOsszeg;
@@ -89,19 +87,18 @@ public class Futes {
 	public void setUtorsoKatamtozas(LocalDate utorsoKatamtozas) {
 		this.utorsoKatamtozas = utorsoKatamtozas;
 	}
-	
+
 	public String getAjtoSzam() {
 		return ajtoSzam;
 	}
 
-	public Futes(String lakas, int aktualisOsszeg, LocalDate lejaratiDatum, int lejartTartozas, LocalDate utorsoKatamtozas) {
+	public Futes(String lakas, int aktualisOsszeg, LocalDate lejaratiDatum, int lejartTartozas,
+			LocalDate utorsoKatamtozas) {
 		this.ajtoSzam = lakas;
 		this.aktualisOsszeg = aktualisOsszeg;
 		this.lejaratiDatum = lejaratiDatum;
 		this.lejartTartozas = lejartTartozas;
 		this.utorsoKatamtozas = utorsoKatamtozas;
 	}
-	
-	
 
 }

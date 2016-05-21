@@ -33,7 +33,6 @@ public class XmlService {
 		try {
 			dbuilder = factory.newDocumentBuilder();
 			Document doc = dbuilder.parse(new File("Lakas.xml"));
-			doc.getDocumentElement().normalize();
 			NodeList nList = doc.getElementsByTagName("Lakas");
 			for (int i = 0; i < nList.getLength(); i++) {
 				Node nNode = nList.item(i);
@@ -50,6 +49,40 @@ public class XmlService {
 			e.printStackTrace();
 		}
 		return lakasList;
+	}
+	
+	public static int getKamat(){
+		DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+		DocumentBuilder dbuilder;
+		try {
+			dbuilder = factory.newDocumentBuilder();
+			Document doc = dbuilder.parse(new File("Kamat.xml"));
+			return Integer.parseInt(doc.getElementsByTagName("kamat").item(0).getTextContent());			
+		} catch (ParserConfigurationException | SAXException | IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return 0;
+	}
+	
+	public static void setKamat(int kamat){
+		DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+		DocumentBuilder dbuilder;
+		try {
+			dbuilder = factory.newDocumentBuilder();
+			Document doc = dbuilder.parse(new File("Kamat.xml"));
+			doc.getElementsByTagName("kamat").item(0).setTextContent(String.valueOf(kamat));
+			TransformerFactory transformerFactory = TransformerFactory.newInstance();
+			Transformer transformer = transformerFactory.newTransformer();
+			DOMSource source = new DOMSource(doc);
+			StreamResult result = new StreamResult(new  File("kamat.xml"));
+			transformer.transform(source, result);
+			
+		} catch (ParserConfigurationException | SAXException | IOException | TransformerException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 	}
 	
 	public static Futes getFutes(Lakas lakas){

@@ -134,7 +134,7 @@ public void createTartozasView(Lakas lakas){
 			TartozasViewController controller = loader.getController();
 			controller.setMain(this);
 			Futes kivLakas = XmlService.getFutes(lakas);
-			kivLakas.kamatozas(10);
+			kivLakas.kamatozas(XmlService.getKamat());
 			Vezerlo.setFutes(kivLakas);
 			controller.setFutes(kivLakas);
 			controller.setStage(stage);
