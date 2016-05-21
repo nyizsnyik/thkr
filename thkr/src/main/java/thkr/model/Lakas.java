@@ -1,7 +1,7 @@
 package thkr.model;
 
-import javax.persistence.Id;
-import javax.persistence.Column;
+
+
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
@@ -9,14 +9,10 @@ import javafx.beans.property.StringProperty;
 
 public class Lakas {
 	
-	@Id
-	@Column(nullable = false)
+
 	private StringProperty ajtoSzam;
-	
 	private StringProperty lakoNev;
-	
 	private StringProperty szSzam;
-	
 	private StringProperty tel;
 	public String getAjtoSzam() {
 		return ajtoSzam.get();
@@ -68,6 +64,10 @@ public class Lakas {
 		this.lakoNev = new SimpleStringProperty(lakoNev);
 		this.szSzam = new SimpleStringProperty(szSzam);
 		this.tel = new SimpleStringProperty(tel);
+	}
+	@Override
+	public String toString() {
+		return "Lakas [ajtoSzam=" + ajtoSzam + ", lakoNev=" + lakoNev + ", szSzam=" + szSzam + ", tel=" + tel + "]";
 	}
 	
 	

@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Futesek>
+	<Futes id="1">
+		<aktualisOsszeg>10000</aktualisOsszeg>
+		<lejaratiDatum>
+			<ev>2016</ev>
+			<honap>6</honap>
+			<nap>11</nap>
+		</lejaratiDatum>
+		<lejartTartozas>20000</lejartTartozas>
+		<utorsoKamatozas>
+			<ev>2016</ev>
+			<honap>5</honap>
+			<nap>11</nap>
+		</utorsoKamatozas>
+	</Futes>
+	<Futes id="2">
+		<aktualisOsszeg>25000</aktualisOsszeg>
+		<lejaratiDatum>
+			<ev>2016</ev>
+			<honap>6</honap>
+			<nap>11</nap>
+		</lejaratiDatum>
+		<lejartTartozas>35000</lejartTartozas>
+		<utorsoKamatozas>
+			<ev>2016</ev>
+			<honap>4</honap>
+			<nap>11</nap>
+		</utorsoKamatozas>
+	</Futes>
+	<Futes id="3">
+		<aktualisOsszeg>45000</aktualisOsszeg>
+		<lejaratiDatum>
+			<ev>2016</ev>
+			<honap>5</honap>
+			<nap>11</nap>
+		</lejaratiDatum>
+		<lejartTartozas>22000</lejartTartozas>
+		<utorsoKamatozas>
+			<ev>2016</ev>
+			<honap>3</honap>
+			<nap>25</nap>
+		</utorsoKamatozas>
+	</Futes>
+	<Futes id="4">
+		<aktualisOsszeg>12000</aktualisOsszeg>
+		<lejaratiDatum>
+			<ev>2016</ev>
+			<honap>7</honap>
+			<nap>21</nap>
+		</lejaratiDatum>
+		<lejartTartozas>0</lejartTartozas>
+		<utorsoKamatozas>
+			<ev>2016</ev>
+			<honap>1</honap>
+			<nap>25</nap>
+		</utorsoKamatozas>
+	</Futes>
+	<Futes id="5">
+		<aktualisOsszeg>1000</aktualisOsszeg>
+		<lejaratiDatum>
+			<ev>2015</ev>
+			<honap>9</honap>
+			<nap>11</nap>
+		</lejaratiDatum>
+		<lejartTartozas>78000</lejartTartozas>
+		<utorsoKamatozas>
+			<ev>2014</ev>
+			<honap>9</honap>
+			<nap>25</nap>
+		</utorsoKamatozas>
+	</Futes>
+	<Futes id="6">
+		<aktualisOsszeg>8700</aktualisOsszeg>
+		<lejaratiDatum>
+			<ev>2016</ev>
+			<honap>02</honap>
+			<nap>11</nap>
+		</lejaratiDatum>
+		<lejartTartozas>2892000</lejartTartozas>
+		<utorsoKamatozas>
+			<ev>2016</ev>
+			<honap>01</honap>
+			<nap>25</nap>
+		</utorsoKamatozas>
+	</Futes>
+</Futesek>

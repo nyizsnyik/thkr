@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Lakasok>
+	<Lakas id="1">
+		<nev>Para Zita</nev>
+		<szSzam>123456AB</szSzam>
+		<tel>06305554466</tel>
+	</Lakas>
+	<Lakas id="2">
+		<nev>Vég Béla</nev>
+		<szSzam>556677AA</szSzam>
+		<tel>06201234657</tel>
+	</Lakas>
+	<Lakas id="3">
+		<nev>Wincs Eszter</nev>
+		<szSzam>654321BB</szSzam>
+		<tel>06703214365</tel>
+	</Lakas>
+	<Lakas id="4">
+		<nev>Bekre Pál</nev>
+		<szSzam>321453CP</szSzam>
+		<tel>06901002233</tel>
+	</Lakas>
+	<Lakas id="5">
+		<nev>Fejet Lenke</nev>
+		<szSzam>885599CP</szSzam>
+		<tel>06705512345</tel>
+	</Lakas>
+	<Lakas id="6">
+		<nev>Mor Zsolt</nev>
+		<szSzam>875542PA</szSzam>
+		<tel>06109845897</tel>
+	</Lakas>
+
+</Lakasok>

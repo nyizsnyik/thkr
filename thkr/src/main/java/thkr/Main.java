@@ -13,12 +13,21 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.util.converter.LocalDateStringConverter;
 import thkr.view.*;
+import thkr.jpa.THKRDBService;
 import thkr.model.*;
 import java.time.*;
+import java.util.ArrayList;
+import java.util.List;
+
+import thkr.jpa.XmlService;
+
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
 public class Main extends Application{
 	
-	private ObservableList<Lakas> lakasList = FXCollections.observableArrayList();
-	private ObservableList<Futes> futesList = FXCollections.observableArrayList();
+	private List<Lakas> lakasList = new ArrayList<Lakas>();
+	private List<Futes> futesList = new ArrayList<Futes>();
 	private Stage primaryStage;
 	private BorderPane rootPane;
 	
@@ -31,15 +40,19 @@ public class Main extends Application{
 		createAdatokView();
 	}
 	public Main(){
-		this.lakasList.add(new Lakas("1","Nathan Summers","12345","06305554466"));
-		this.lakasList.add(new Lakas("2","asd asd","1332345","06305444554466"));
-		this.lakasList.add(new Lakas("3","asdn Summers","12345","06305554466"));
-		this.lakasList.add(new Lakas("4","Nat asd","12dddddddd345","063055444444454466"));
 		
-		this.futesList.add(new Futes("1",13000,LocalDate.of(2016,6,11),20000,LocalDate.of(2016, 02, 11)));
-		this.futesList.add(new Futes("2",14000,LocalDate.of(2016,7,1),20000,LocalDate.of(2016, 06, 11)));
-		this.futesList.add(new Futes("3",15000,LocalDate.of(2016,4,21),20000,LocalDate.of(2016, 05, 11)));
-		this.futesList.add(new Futes("4",11000,LocalDate.of(2016,8,5),20000,LocalDate.of(2016, 04, 11)));
+		lakasList= XmlService.getAllLakas();
+		
+		
+//		this.lakasList.add(new Lakas("1","Nathan Summers","12345","06305554466"));
+//		this.lakasList.add(new Lakas("2","asd asd","1332345","06305444554466"));
+//		this.lakasList.add(new Lakas("3","asdn Summers","12345","06305554466"));
+//		this.lakasList.add(new Lakas("4","Nat asd","12dddddddd345","063055444444454466"));
+//		
+//		this.futesList.add(new Futes("1",13000,LocalDate.of(2016,6,11),20000,LocalDate.of(2016, 02, 11)));
+//		this.futesList.add(new Futes("2",14000,LocalDate.of(2016,7,1),20000,LocalDate.of(2016, 06, 11)));
+//		this.futesList.add(new Futes("3",15000,LocalDate.of(2016,4,21),20000,LocalDate.of(2016, 05, 11)));
+//		this.futesList.add(new Futes("4",11000,LocalDate.of(2016,8,5),20000,LocalDate.of(2016, 04, 11)));
 	}
 	
 	public static void main(String[] args) {
@@ -122,13 +135,13 @@ public void createTartozasView(Lakas lakas){
 			
 			TartozasViewController controller = loader.getController();
 			controller.setMain(this);
-			Futes kivLakas = null;
-			for (Futes futes : futesList) {
-				if(futes.getAjtoSzam()==lakas.getAjtoSzam()){
-					kivLakas=futes;
-					break;
-				}
-			}
+			Futes kivLakas = XmlService.getFutes(lakas);
+//			for (Futes futes : futesList) {
+//				if(futes.getAjtoSzam()==lakas.getAjtoSzam()){
+//					kivLakas=futes;
+//					break;
+//				}
+//			}
 			kivLakas.kamatozas(10);
 			kivLakas.lejatr();
 			controller.setFutes(kivLakas);
@@ -142,7 +155,7 @@ public void createTartozasView(Lakas lakas){
 	}
 
 
-	public ObservableList<Lakas> getLakasList() {
+	public List<Lakas> getLakasList() {
 		return lakasList;
 	}
 
@@ -152,7 +165,7 @@ public void createTartozasView(Lakas lakas){
 	}
 
 
-	public ObservableList<Futes> getFutesList() {
+	public List<Futes> getFutesList() {
 		return futesList;
 	}
 

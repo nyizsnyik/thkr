@@ -39,7 +39,14 @@ public class AdatokController {
 	public void setMain(Main main2) {
 		this.main = main2;
 		//System.out.println(main.getLakasList().get(1).getLakoNev());
-		lakasTable.setItems(main2.getLakasList());
+		
+		ObservableList<Lakas> l = FXCollections.observableArrayList();
+		
+		for (Lakas lakas : main2.getLakasList()) {
+			l.add(lakas);
+		}
+		
+		lakasTable.setItems(l);
 		
 //		ObservableList<Lakas> lakasList2 = FXCollections.observableArrayList();
 //		lakasList2.add(new Lakas("1","Nathan Summers","12345","06305554466"));
