@@ -30,8 +30,8 @@ public class FutesTest {
 		Futes futes5 = new Futes("5", 0, LocalDate.of(2016, 5, 21), 20000, LocalDate.of(2016, 4, 11));
 		assertEquals(false, futes5.lejartE());
 
-		// csak 2016.05.21.-ig megy át a teszt
-		Futes futes6 = new Futes("6", 1002550, LocalDate.of(2016, 5, 21), 20000, LocalDate.of(2016, 4, 11));
+		// csak 2016.05.24.-ig megy át a teszt
+		Futes futes6 = new Futes("6", 1002550, LocalDate.of(2016, 5, 24), 20000, LocalDate.of(2016, 4, 11));
 		assertEquals(false, futes6.lejartE());
 	}
 
@@ -52,8 +52,8 @@ public class FutesTest {
 		Futes futes4 = new Futes("4", 10000, LocalDate.of(2016, 5, 11), 0, LocalDate.of(2016, 6, 11));
 		assertEquals(false, futes4.kelleKamatozni());
 
-		// csak 2016.05.21.-ig megy át a teszt
-		Futes futes5 = new Futes("5", 10000, LocalDate.of(2016, 5, 11), 120000, LocalDate.of(2016, 4, 21));
+		// csak 2016.05.24.-ig megy át a teszt
+		Futes futes5 = new Futes("5", 10000, LocalDate.of(2016, 5, 11), 120000, LocalDate.of(2016, 4, 24));
 		assertEquals(false, futes5.kelleKamatozni());
 
 		Futes futes6 = new Futes("6", 10000, LocalDate.of(2016, 5, 11), 0, LocalDate.of(2016, 4, 21));
